@@ -5,12 +5,12 @@ formatter: markdown table
 content: |-
   [![Tests](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml)
 
-  # Terraform ACI Scaffolding Module
+  # Terraform ACI IP SLA Policy
 
   Description
 
   Location in GUI:
-  `Tenants` » `XXX`
+  `Tenants` » `Policies` » `Protocol` » `IP SLA` » `IP SLA Monitoring Policies`
 
   ## Examples
 

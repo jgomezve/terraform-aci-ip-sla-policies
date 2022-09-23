@@ -1,9 +1,9 @@
 output "dn" {
-  value       = aci_rest_managed.fvTenant.id
-  description = "Distinguished name of `fvTenant` object."
+  value       = aci_rest_managed.fvIPSLAMonitoringPol.id
+  description = "Distinguished name of `fvIPSLAMonitoringPol` object."
 }
 
 output "name" {
-  value       = aci_rest_managed.fvTenant.content.name
-  description = "Tenant name."
+  value       = aci_rest_managed.fvIPSLAMonitoringPol.content.name
+  description = "IP SLA Policy name."
 }
