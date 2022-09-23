@@ -1,4 +1,5 @@
 terraform {
+  required_version = ">= 1.0.0"
   required_providers {
     test = {
       source = "terraform.io/builtin/test"
@@ -14,7 +15,7 @@ terraform {
 module "main" {
   source = "../.."
 
-  name = "TEST_MINIMAL"
+  name   = "TEST_MINIMAL"
   tenant = "TEN1"
 
 }

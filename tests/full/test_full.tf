@@ -1,4 +1,5 @@
 terraform {
+  required_version = ">= 1.0.0"
   required_providers {
     test = {
       source = "terraform.io/builtin/test"
@@ -14,13 +15,13 @@ terraform {
 module "main" {
   source = "../.."
 
-  name = "TEST_FULL"
+  name        = "TEST_FULL"
   description = "My IP SLA Policy"
-  tenant = "TEN1"
-  multiplier = 6
-  frequency = 123
-  sla_type = "tcp"
-  port = 123
+  tenant      = "TEN1"
+  multiplier  = 6
+  frequency   = 123
+  sla_type    = "tcp"
+  port        = 123
 }
 
 data "aci_rest_managed" "fvIPSLAMonitoringPol" {

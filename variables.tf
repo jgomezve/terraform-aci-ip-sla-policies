@@ -11,7 +11,7 @@ variable "name" {
 variable "description" {
   description = "IP SLA Policy description."
   type        = string
-  default = ""
+  default     = ""
 
   validation {
     condition     = can(regex("^[a-zA-Z0-9\\!#$%()*,-./:;@ _{|}~?&+]{0,128}$", var.description))

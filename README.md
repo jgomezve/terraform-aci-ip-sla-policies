@@ -1,23 +1,27 @@
 <!-- BEGIN_TF_DOCS -->
 [![Tests](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml)
 
-# Terraform ACI Scaffolding Module
+# Terraform ACI IP SLA Policy
 
 Description
 
 Location in GUI:
-`Tenants` » `XXX`
+`Tenants` » `Policies` » `Protocol` » `IP SLA` » `IP SLA Monitoring Policies`
 
 ## Examples
 
 ```hcl
-module "aci_scaffolding" {
-  source  = "netascode/scaffolding/aci"
+module "aci_ip_sla_policy" {
+  source  = "netascode/ip_sla_policy/aci"
   version = ">= 0.0.1"
 
   name        = "ABC"
-  alias       = "ABC-ALIAS"
   description = "My Description"
+  tenant      = "TEN1"
+  multiplier  = 10
+  frequency   = 120
+  sla_type    = "tcp"
+  port        = 65001
 }
 ```
 
@@ -38,20 +42,24 @@ module "aci_scaffolding" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Tenant name. | `string` | n/a | yes |
-| <a name="input_alias"></a> [alias](#input\_alias) | Tenant alias. | `string` | `""` | no |
-| <a name="input_description"></a> [description](#input\_description) | Tenant description. | `string` | `""` | no |
+| <a name="input_name"></a> [name](#input\_name) | IP SLA Policy name. | `string` | n/a | yes |
+| <a name="input_description"></a> [description](#input\_description) | IP SLA Policy description. | `string` | `""` | no |
+| <a name="input_tenant"></a> [tenant](#input\_tenant) | IP SLA Policy Tenant's name. | `string` | n/a | yes |
+| <a name="input_multiplier"></a> [multiplier](#input\_multiplier) | IP SLA Policy multiplier. | `number` | `3` | no |
+| <a name="input_frequency"></a> [frequency](#input\_frequency) | IP SLA Policy frequency. | `number` | `60` | no |
+| <a name="input_port"></a> [port](#input\_port) | IP SLA Policy port. | `number` | `0` | no |
+| <a name="input_sla_type"></a> [sla\_type](#input\_sla\_type) | IP SLA Policy type. | `string` | `"icmp"` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `fvTenant` object. |
-| <a name="output_name"></a> [name](#output\_name) | Tenant name. |
+| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `fvIPSLAMonitoringPol` object. |
+| <a name="output_name"></a> [name](#output\_name) | IP SLA Policy name. |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [aci_rest_managed.fvTenant](https://registry.terraform.io/providers/CiscoDevNet/aci/latest/docs/resources/rest_managed) | resource |
+| [aci_rest_managed.fvIPSLAMonitoringPol](https://registry.terraform.io/providers/CiscoDevNet/aci/latest/docs/resources/rest_managed) | resource |
 <!-- END_TF_DOCS -->
