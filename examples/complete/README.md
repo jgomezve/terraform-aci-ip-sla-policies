@@ -13,7 +13,7 @@ Note that this example will create resources. Resources can be destroyed with `t
 
 ```hcl
 module "aci_ip_sla_policy" {
-  source  = "netascode/ip_sla_policy/aci"
+  source  = "netascode/ip-sla-policy/aci"
   version = ">= 0.0.1"
 
   name        = "ABC"

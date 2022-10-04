@@ -30,7 +30,7 @@ variable "tenant" {
 }
 
 variable "multiplier" {
-  description = "IP SLA Policy multiplier."
+  description = "IP SLA Policy multiplier. Allowed values `from`: 1-100."
   type        = number
   default     = 3
 
@@ -41,7 +41,7 @@ variable "multiplier" {
 }
 
 variable "frequency" {
-  description = "IP SLA Policy frequency."
+  description = "IP SLA Policy frequency. Allowed values `from`: 1-300."
   type        = number
   default     = 60
 
@@ -52,7 +52,7 @@ variable "frequency" {
 }
 
 variable "port" {
-  description = "IP SLA Policy port."
+  description = "IP SLA Policy port. Allowed values `from`: 1-65535."
   type        = number
   default     = 0
 
@@ -63,7 +63,7 @@ variable "port" {
 }
 
 variable "sla_type" {
-  description = "IP SLA Policy type."
+  description = "IP SLA Policy type. Valid values are `icmp`, `tcp` or `l2ping`."
   type        = string
   default     = "icmp"
 

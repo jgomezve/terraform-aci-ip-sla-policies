@@ -1,18 +1,18 @@
 <!-- BEGIN_TF_DOCS -->
 [![Tests](https://github.com/netascode/terraform-aci-ip-sla-policy/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml)
 
-# Terraform ACI IP SLA Policy
+# Terraform ACI IP SLA Policy Module
 
-Description
+Manages ACI IP SLA Policy
 
 Location in GUI:
-`Tenants` » `Policies` » `Protocol` » `IP SLA` » `IP SLA Monitoring Policies`
+`Tenants` » `XXXX` » `Policies` » `Protocol` » `IP SLA` » `IP SLA Monitoring Policies`
 
 ## Examples
 
 ```hcl
 module "aci_ip_sla_policy" {
-  source  = "netascode/ip_sla_policy/aci"
+  source  = "netascode/ip-sla-policy/aci"
   version = ">= 0.0.1"
 
   name        = "ABC"
@@ -45,10 +45,10 @@ module "aci_ip_sla_policy" {
 | <a name="input_name"></a> [name](#input\_name) | IP SLA Policy name. | `string` | n/a | yes |
 | <a name="input_description"></a> [description](#input\_description) | IP SLA Policy description. | `string` | `""` | no |
 | <a name="input_tenant"></a> [tenant](#input\_tenant) | IP SLA Policy Tenant's name. | `string` | n/a | yes |
-| <a name="input_multiplier"></a> [multiplier](#input\_multiplier) | IP SLA Policy multiplier. | `number` | `3` | no |
-| <a name="input_frequency"></a> [frequency](#input\_frequency) | IP SLA Policy frequency. | `number` | `60` | no |
-| <a name="input_port"></a> [port](#input\_port) | IP SLA Policy port. | `number` | `0` | no |
-| <a name="input_sla_type"></a> [sla\_type](#input\_sla\_type) | IP SLA Policy type. | `string` | `"icmp"` | no |
+| <a name="input_multiplier"></a> [multiplier](#input\_multiplier) | IP SLA Policy multiplier. Allowed values `from`: 1-100. | `number` | `3` | no |
+| <a name="input_frequency"></a> [frequency](#input\_frequency) | IP SLA Policy frequency. Allowed values `from`: 1-300. | `number` | `60` | no |
+| <a name="input_port"></a> [port](#input\_port) | IP SLA Policy port. Allowed values `from`: 1-65535. | `number` | `0` | no |
+| <a name="input_sla_type"></a> [sla\_type](#input\_sla\_type) | IP SLA Policy type. Valid values are `icmp`, `tcp` or `l2ping`. | `string` | `"icmp"` | no |
 
 ## Outputs
 
