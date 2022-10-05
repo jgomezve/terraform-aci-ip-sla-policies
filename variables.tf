@@ -30,35 +30,35 @@ variable "tenant" {
 }
 
 variable "multiplier" {
-  description = "IP SLA Policy multiplier. Allowed values `from`: 1-100."
+  description = "IP SLA Policy multiplier. Allowed values `multiplier`: 1-100."
   type        = number
   default     = 3
 
   validation {
     condition     = var.multiplier >= 1 && var.multiplier <= 100
-    error_message = "Allowed values `from`: 1-100."
+    error_message = "Allowed values `multiplier`: 1-100."
   }
 }
 
 variable "frequency" {
-  description = "IP SLA Policy frequency. Allowed values `from`: 1-300."
+  description = "IP SLA Policy frequency. Allowed values `frequency`: 1-300."
   type        = number
   default     = 60
 
   validation {
     condition     = var.frequency >= 1 && var.frequency <= 300
-    error_message = "Allowed values `from`: 1-300."
+    error_message = "Allowed values `frequency`: 1-300."
   }
 }
 
 variable "port" {
-  description = "IP SLA Policy port. Allowed values `from`: 1-65535."
+  description = "IP SLA Policy port. Allowed values `port`: 1-65535."
   type        = number
   default     = 0
 
   validation {
     condition     = var.port >= 0 && var.port <= 65535
-    error_message = "Allowed values `from`: 1-65535."
+    error_message = "Allowed values `port`: 1-65535."
   }
 }
 

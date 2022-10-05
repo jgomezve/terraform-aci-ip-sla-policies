@@ -12,12 +12,18 @@ terraform {
   }
 }
 
+resource "aci_rest_managed" "fvTenant" {
+  dn         = "uni/tn-TF"
+  class_name = "fvTenant"
+}
+
+
 module "main" {
   source = "../.."
 
   name        = "TEST_FULL"
   description = "My IP SLA Policy"
-  tenant      = "TEN1"
+  tenant      = aci_rest_managed.fvTenant.content.name
   multiplier  = 6
   frequency   = 123
   sla_type    = "tcp"
@@ -25,7 +31,7 @@ module "main" {
 }
 
 data "aci_rest_managed" "fvIPSLAMonitoringPol" {
-  dn = "uni/tn-TEN1/ipslaMonitoringPol-TEST_FULL"
+  dn = "uni/tn-${aci_rest_managed.fvTenant.content.name}/ipslaMonitoringPol-TEST_FULL"
 
   depends_on = [module.main]
 }

@@ -12,16 +12,21 @@ terraform {
   }
 }
 
+resource "aci_rest_managed" "fvTenant" {
+  dn         = "uni/tn-TF"
+  class_name = "fvTenant"
+}
+
 module "main" {
   source = "../.."
 
   name   = "TEST_MINIMAL"
-  tenant = "TEN1"
+  tenant = aci_rest_managed.fvTenant.content.name
 
 }
 
 data "aci_rest_managed" "fvIPSLAMonitoringPol" {
-  dn = "uni/tn-TEN1/ipslaMonitoringPol-TEST_MINIMAL"
+  dn = "uni/tn-${aci_rest_managed.fvTenant.content.name}/ipslaMonitoringPol-TEST_MINIMAL"
 
   depends_on = [module.main]
 }

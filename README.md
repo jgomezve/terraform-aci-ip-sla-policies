@@ -36,7 +36,7 @@ module "aci_ip_sla_policy" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aci"></a> [aci](#provider\_aci) | >= 2.0.0 |
+| <a name="provider_aci"></a> [aci](#provider\_aci) | 2.5.2 |
 
 ## Inputs
 
@@ -45,9 +45,9 @@ module "aci_ip_sla_policy" {
 | <a name="input_name"></a> [name](#input\_name) | IP SLA Policy name. | `string` | n/a | yes |
 | <a name="input_description"></a> [description](#input\_description) | IP SLA Policy description. | `string` | `""` | no |
 | <a name="input_tenant"></a> [tenant](#input\_tenant) | IP SLA Policy Tenant's name. | `string` | n/a | yes |
-| <a name="input_multiplier"></a> [multiplier](#input\_multiplier) | IP SLA Policy multiplier. Allowed values `from`: 1-100. | `number` | `3` | no |
-| <a name="input_frequency"></a> [frequency](#input\_frequency) | IP SLA Policy frequency. Allowed values `from`: 1-300. | `number` | `60` | no |
-| <a name="input_port"></a> [port](#input\_port) | IP SLA Policy port. Allowed values `from`: 1-65535. | `number` | `0` | no |
+| <a name="input_multiplier"></a> [multiplier](#input\_multiplier) | IP SLA Policy multiplier. Allowed values `multiplier`: 1-100. | `number` | `3` | no |
+| <a name="input_frequency"></a> [frequency](#input\_frequency) | IP SLA Policy frequency. Allowed values `frequency`: 1-300. | `number` | `60` | no |
+| <a name="input_port"></a> [port](#input\_port) | IP SLA Policy port. Allowed values `port`: 1-65535. | `number` | `0` | no |
 | <a name="input_sla_type"></a> [sla\_type](#input\_sla\_type) | IP SLA Policy type. Valid values are `icmp`, `tcp` or `l2ping`. | `string` | `"icmp"` | no |
 
 ## Outputs
