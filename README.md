@@ -1,19 +1,19 @@
 <!-- BEGIN_TF_DOCS -->
-[![Tests](https://github.com/netascode/terraform-aci-ip-sla-policy/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml)
+[![Tests](https://github.com/netascode/terraform-aci-ip-sla-policy/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-ip-sla-policy/actions/workflows/test.yml)
 
 # Terraform ACI IP SLA Policy Module
 
 Manages ACI IP SLA Policy
 
 Location in GUI:
-`Tenants` » `XXXX` » `Policies` » `Protocol` » `IP SLA` » `IP SLA Monitoring Policies`
+`Tenants` » `XXX` » `Policies` » `Protocol` » `IP SLA` » `IP SLA Monitoring Policies`
 
 ## Examples
 
 ```hcl
 module "aci_ip_sla_policy" {
   source  = "netascode/ip-sla-policy/aci"
-  version = ">= 0.0.1"
+  version = ">= 0.1.0"
 
   name        = "ABC"
   description = "My Description"
@@ -29,7 +29,7 @@ module "aci_ip_sla_policy" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
 | <a name="requirement_aci"></a> [aci](#requirement\_aci) | >= 2.0.0 |
 
 ## Providers
@@ -42,9 +42,9 @@ module "aci_ip_sla_policy" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_tenant"></a> [tenant](#input\_tenant) | IP SLA Policy Tenant's name. | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | IP SLA Policy name. | `string` | n/a | yes |
 | <a name="input_description"></a> [description](#input\_description) | IP SLA Policy description. | `string` | `""` | no |
-| <a name="input_tenant"></a> [tenant](#input\_tenant) | IP SLA Policy Tenant's name. | `string` | n/a | yes |
 | <a name="input_multiplier"></a> [multiplier](#input\_multiplier) | IP SLA Policy multiplier. Allowed values `multiplier`: 1-100. | `number` | `3` | no |
 | <a name="input_frequency"></a> [frequency](#input\_frequency) | IP SLA Policy frequency. Allowed values `frequency`: 1-300. | `number` | `60` | no |
 | <a name="input_port"></a> [port](#input\_port) | IP SLA Policy port. Allowed values `port`: 1-65535. | `number` | `0` | no |
